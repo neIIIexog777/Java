@@ -100,7 +100,7 @@ public class Main {
                 System.out.println("не угадал");
             }
 
-        } while (num != 1); // почему здесь отрицацие, получается 1 != 1 , но это же false
+        } while (num != 1); // не понял, почему здесь отрицацие, получается 1 != 1 , но это же false
 
         System.out.println("Угадал!");
 
