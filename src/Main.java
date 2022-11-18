@@ -13,12 +13,12 @@ public class Main {
 
         for (int i = 0;i<lastNumber;i++ ){
             if((i > 10) && (i % 2 != 0 && i % 3 != 0 && i % 5 != 0 && i % 7 != 0)){
-                    arr[i] = i;
+                arr[i] = i;
             } else if ((i > 1 && ((i % 2 != 0 || i == 2) && (i % 3 != 0 || i == 3 )))) {
                 arr[i] = i;
             }
 
-             }
+        }
         int arrCounter = 0;
         for(int i: arr){
             if(i != 0){
@@ -39,37 +39,43 @@ public class Main {
 
     }
 
-
-
     //упражнение №2
     public static void main2(String[] args) {
         Scanner in = new Scanner(System.in);
         int[] arr = new int[5];
 
-        int sum = 0;
+
         for(int i = 0; i<arr.length;i++){
             System.out.print("Input a number: ");
             arr[i] = in.nextInt();
-            sum+=arr[i];
+
         }
         in.close();
-        System.out.println(sum);
+        for(int i = 0; i< arr.length; i++){
+            if (i == 0){
+                System.out.println(arr[0]+ arr[arr.length-1]);
+            }
+            else System.out.println(arr[i]+arr[i-1]);
+        }
+
+
 
     }
 
+
     //упражнение №1
 
-    public static void main1(String[] args) {
+    public static void main(String[] args) {
 
 
-        char[] name = {80,97,118,101,108};
+        char[] name = {'P','a','v','e','l'};
 
         for(char i : name){
-            System.out.println(i);
+            System.out.print(i);
         }
+        System.out.println("");
 
-
-        char[] name2 = {80,97,118,101,108};
+        char[] name2 = {'P','a','v','e','l'};
         String s ="";
 
         for(char i : name){
