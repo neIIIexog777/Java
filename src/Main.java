@@ -2,118 +2,73 @@ import java.util.Scanner;
 
 public class Main {
     //Упражнение №1
-    public static void main1(String[] args) {
+    public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter string: ");
-        String s = scanner.nextLine();
-        scanner.close();
 
-        String answer =  checkingMessage(s);
-        printConsole(answer);
-
+        addStrings("Hello","this","is","Java");
+        addStrings("Say","my","name");
     }
 
-    static String checkingMessage(String s){
-        switch (s) {
-            case "Hi":
-                return "Hello";
-
-            case "Bye":
-                return "Good bye";
-
-            case "How are you":
-                return "How are your doing";
-
-            default:
-                return "Unknown message";
+    static void  addStrings(String ...s) {
+        String string = "";
+        for (String txt : s){
+            string += txt + " ";
         }
-    }
 
-    static void printConsole(String s){
-        System.out.println(s);
+        System.out.println(string);
     }
 
     //Упражнение №2
     public static void main2(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
-
-        System.out.print("Enter a: ");
-
-        int a = scanner.nextInt();
-
-        System.out.print("Enter b: ");
-        int b = scanner.nextInt();
-
-        scanner.close();
-
-//        Если а - четное ИЛИ b - кратно трем
-        if (a % 2 == 0 || b % 3 == 0) {
-            System.out.println(a == b);
-        }
-
-        checkMultipleTwoOrThree(a,b);
-    }
-    static void checkMultipleTwoOrThree(int a, int b){
-        if (a % 2 == 0 && a % 3 == 0) {    // Данную проверку можно оптимизировать как a % 6 == 0
-//            Записываем в переменную result результат возведения a в степень b
-//            Тип double был использован, потому что Math.pow() возвращает именно его.
-//            В остальном нам подошел бы и long
-            double result = Math.pow(a, b);
-
-//            Если результат превышает допустимые размеры для int
-            if (result > Integer.MAX_VALUE || result < Integer.MIN_VALUE) {
-                System.out.println("Результат выражения слишком большой!");
-            } else {    //в ином случае
-//                Каст к int необязателен, но позволяет избежать выведения в консоль дробной части
-                System.out.println((int) result);
-            }
-        }
+        System.out.println(countSum(2, 3));
+        System.out.println(countSum(2.5, 3.3));
+        System.out.println(countSum('h', 'i'));
     }
 
+    static int countSum(int ...args){
+        int sum = 0;
+        for (int arg : args){
+            sum += arg;
+        }
+        return sum;
+    }
+    static double countSum(double ...args){
+        double sum = 0;
+        for (double arg : args){
+            sum += arg;
+        }
+        return sum;
+    }
+    static String countSum(char ...args){
+        String sum = "";
+        for (char arg : args){
+            sum += arg;
+        }
+        return (String)sum;
+    }
 
-    //упражнение №3
+    //Упражнение №3
     public static void main3(String[] args) {
         Scanner in = new Scanner(System.in);
-        System.out.print("Введите длину прямоугольника: ");
-        int length = in.nextInt();
-        System.out.print("Введите ширину прямоугольника: ");
-        int width = in.nextInt();
+        System.out.print("Input a number: ");
+        int num = in.nextInt();
         in.close();
-
-        int lengthCounter = 0;
-        String lengthLines = ""; // " "
-
-        while (lengthCounter < length) {
-            lengthLines += "-";
-            lengthCounter++;
-        }
-        lengthLines = " " + lengthLines;
-        String space = " ";
-
-        for (int i = 0; i < lengthCounter; i++) {
-            space += " ";
-        }
-        String widthLines = "";
-        int widthCounter = 0;
-
-        while (widthCounter < width) {
-            widthLines += "|" + space + "|" + "\n";
-            widthCounter++;
-        }
-
-        printConsole(lengthLines, widthLines );
-
-
+        System.out.println(factorial(num));
 
     }
-   static void printConsole(String lengthLines,String widthLines){
-        System.out.print(lengthLines);
-        System.out.println("");
-        System.out.print(widthLines);
-        System.out.print(lengthLines);
+
+    static int factorial(int x){
+
+        if (x == 1){
+
+            return 1;
+        }
+        return x * factorial(x - 1);
     }
+}
 
 
-    }
+
+
+
